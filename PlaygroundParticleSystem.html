@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body,html {
+        margin:auto;
+        padding:0;
+      }
+      canvas {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="MyCanvas" class="center"></canvas>
+    <script src="ParticleEngine.js" type="text/javascript"></script>
+    <!--Alter the settings in the following script tag to make particle systems-->
+    <script>
+      alert("Regular Click For Emitter; Shift Click for Attract; Ctrl Click for Repel");
+      canvas.addEventListener('click', function(evt) {
+        if (evt.ctrlKey) {
+          fields.push(new Field(new Vector(evt.clientX, evt.clientY), -100));
+        }
+        else if (evt.shiftKey) {
+          fields.push(new Field(new Vector(evt.clientX, evt.clientY), 100));
+        }
+        else {
+          emitters.push(new Emitter(new Vector(evt.clientX, evt.clientY),
+                                    new Vector(2, 0),
+                                    Math.PI));
+        }
+      });
+    </script>
+  </body>
+</html>

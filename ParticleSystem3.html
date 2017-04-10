@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body,html {
+        margin:auto;
+        padding:0;
+      }
+      canvas {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="MyCanvas"></canvas>
+    <script src="ParticleEngine.js" type="text/javascript"></script>
+    <!--Alter the settings in the following script tag to make particle systems-->
+    <script>
+      var emitters = [
+        new Emitter(new Vector(midX, midY), Vector.fromAngle(6, 2))
+      ];
+
+      var fields = [
+        new Field(new Vector(midX + 50, midY + 20), 150),
+        new Field(new Vector(midX - 150, midY + 20), 100),
+        new Field(new Vector(midX - 50, midY + 20), -20),
+      ];
+      var MAX_PARTICLES = 20;
+    </script>
+  </body>
+</html>

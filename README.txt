@@ -1,6 +1,26 @@
+A particle system experiment made with help from:
+https://software.intel.com/en-us/html5/hub/blogs/build-a-javascript-particle-system-in-200-lines
+
 Instructions:
 
-Simply run index.html in any HTML5 supporting browser
+Simply run any of the html files (other than template) in any HTML5 supporting browser
 
-A particle system mini-project made with help from:
-https://software.intel.com/en-us/html5/hub/blogs/build-a-javascript-particle-system-in-200-lines
+For PlaygroundParticleSystem:
+-Clicking regularly creates an emitter that shoots out in all directions
+-Clicking with the shift key held down creates an attracting green dot
+-Clicking with the ctrl key held down creates a repelling red dot
+
+Fields you can safely alter in the second <script> in Template.html as well as their defaults:
+var MAX_PARTICLES = 2000;
+var EMISSION_RATE = 4; //how many particles are emitted each frame
+var PARTICLE_SIZE = 2;
+var FE_SIZE = 3; //how big fields and emitters are
+var PARTICLE_COLOR = "rgb(0,0,255)";
+var EMITTER_COLOR = "rgb(255,255,255)";
+var ATTRACT_FIELD_COLOR = "rgb(255,0,0)";
+var REPEL_FIELD_COLOR = "rgb(0,255,0)";
+
+var emitters = [];
+var fields = [];
+
+also midX and midY are available as middle x and y coordinates of the canvas
