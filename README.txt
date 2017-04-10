@@ -5,7 +5,7 @@ Instructions:
 
 Simply run any of the html files (other than template) in any HTML5 supporting browser
 
-For PlaygroundParticleSystem:
+For PlaygroundParticleSystem.html:
 -Clicking regularly creates an emitter that shoots out in all directions
 -Clicking with the shift key held down creates an attracting green dot
 -Clicking with the ctrl key held down creates a repelling red dot
