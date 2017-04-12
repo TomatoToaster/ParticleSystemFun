@@ -7,7 +7,7 @@ var MAX_PARTICLES = 2000;
 var EMISSION_RATE = 4; //how many particles are emitted each frame
 var PARTICLE_SIZE = 2;
 var FE_SIZE = 3; //how big fields and emitters are
-var PARTICLE_COLOR = "rgb(0,0,255)";
+var PARTICLE_OVERRIDE_COLOR = "";
 var EMITTER_COLOR = "rgb(255,255,255)";
 var ATTRACT_FIELD_COLOR = "rgb(255,0,0)";
 var REPEL_FIELD_COLOR = "rgb(0,255,0)";
@@ -56,6 +56,7 @@ Particle.prototype.move = function() {
   this.velocity.add(this.acceleration);
   this.position.add(this.velocity);
 };
+//submits the particle to fields
 Particle.prototype.submitToFields = function(fields) {
   var totalAccelerationX = 0;
   var totalAccelerationY = 0;
@@ -74,7 +75,13 @@ Particle.prototype.submitToFields = function(fields) {
   }
 
   this.acceleration = new Vector(totalAccelerationX, totalAccelerationY);
-}
+};
+//gets color for the particle based on its fields
+Particle.prototype.getColor = function() {
+  return "rgb(" + parseInt(((this.velocity.getMagnitude() * 40) % 200) + 56)
+  +"," +parseInt(((this.velocity.getMagnitude() * 50) % 200) + 56)
+  +"," +parseInt(((this.velocity.getMagnitude() * 60) % 200) + 56) +")";
+};
 
 
 /*
@@ -169,13 +176,20 @@ function draw() {
 }
 
 function drawParticles() {
-  //Set the color of our particles
-  context.fillStyle = PARTICLE_COLOR;
 
-  for (var i = 0; i< particles.length; i++) {
-    var position = particles[i].position;
-
-    context.fillRect(position.x, position.y, PARTICLE_SIZE, PARTICLE_SIZE);
+  if (PARTICLE_OVERRIDE_COLOR != "") {
+    context.fillStyle = PARTICLE_OVERRIDE_COLOR;
+    for (var i = 0; i< particles.length; i++) {
+      var position = particles[i].position;
+      context.fillRect(position.x, position.y, PARTICLE_SIZE, PARTICLE_SIZE);
+    }
+  }
+  else {
+    for (var i = 0; i< particles.length; i++) {
+      var position = particles[i].position;
+      context.fillStyle = particles[i].getColor();
+      context.fillRect(position.x, position.y, PARTICLE_SIZE, PARTICLE_SIZE);
+    }
   }
 }
 
