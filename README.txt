@@ -1,5 +1,7 @@
 A particle system experiment made with help from:
 https://software.intel.com/en-us/html5/hub/blogs/build-a-javascript-particle-system-in-200-lines
+Beyond the tutorial, I've added particle collision and "modularity" by creating an engine of sorts
+There are future plans to compile this into a library
 
 Instructions:
 
@@ -19,6 +21,7 @@ var PARTICLE_OVERRIDE_COLOR = "";
 var EMITTER_COLOR = "rgb(255,255,255)";
 var ATTRACT_FIELD_COLOR = "rgb(255,0,0)";
 var REPEL_FIELD_COLOR = "rgb(0,255,0)";
+var PARTICLE_COLLISION = 0; //set to 1 to turn on particle collision
 
 var emitters = [];
 var fields = [];

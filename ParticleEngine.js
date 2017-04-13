@@ -11,6 +11,7 @@ var PARTICLE_OVERRIDE_COLOR = "";
 var EMITTER_COLOR = "rgb(255,255,255)";
 var ATTRACT_FIELD_COLOR = "rgb(255,0,0)";
 var REPEL_FIELD_COLOR = "rgb(0,255,0)";
+var PARTICLE_COLLISION = 0;
 
 var canvas = document.getElementById('MyCanvas');
 var context = canvas.getContext('2d');
@@ -82,6 +83,20 @@ Particle.prototype.getColor = function() {
   +"," +parseInt(((this.velocity.getMagnitude() * 50) % 200) + 56)
   +"," +parseInt(((this.velocity.getMagnitude() * 60) % 200) + 56) +")";
 };
+//checks collision of particles (ignoring the currentIndex of the particle)
+Particle.prtotype.collideAgainstOtherParticles = function(currentIndex) {
+  for (var i  = 0; i < particles.length; i++) {
+    if (i == currentIndex)
+      continue;
+
+    var otherPos = particles[i].position;
+    var dist = (new Vector(otherPos.x - this.position.x, otherPos.y - this.position.y)).getMagnitude();
+    if (dist <= PARTICLE_SIZE) {
+      var otherVel = particles[i].velocity;
+      var
+    }
+  }
+}
 
 
 /*
