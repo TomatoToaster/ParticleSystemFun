@@ -1,3 +1,4 @@
+## Particle System Fun!
 A particle system experiment made with help from:
 https://software.intel.com/en-us/html5/hub/blogs/build-a-javascript-particle-system-in-200-lines
 Beyond the tutorial, I've added particle collision and "modularity" by creating an engine of sorts
@@ -12,7 +13,9 @@ For PlaygroundParticleSystem.html:
 -Clicking with the shift key held down creates an attracting green dot
 -Clicking with the ctrl key held down creates a repelling red dot
 
-Fields you can safely alter in the second <script> in Template.html as well as their defaults:
+
+Fields you can safely alter in the second `<script>` in Template.html as well as their defaults:
+```
 var MAX_PARTICLES = 2000;
 var EMISSION_RATE = 4; //how many particles are emitted each frame
 var PARTICLE_SIZE = 2;
@@ -27,3 +30,4 @@ var emitters = [];
 var fields = [];
 
 also midX and midY are available as middle x and y coordinates of the canvas
+```
