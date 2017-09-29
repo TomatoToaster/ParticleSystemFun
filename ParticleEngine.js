@@ -84,7 +84,7 @@ Particle.prototype.getColor = function() {
   +"," +parseInt(((this.velocity.getMagnitude() * 60) % 200) + 56) +")";
 };
 //checks collision of particles (ignoring the currentIndex of the particle)
-Particle.prtotype.collideAgainstOtherParticles = function(currentIndex) {
+Particle.prototype.collideAgainstOtherParticles = function(currentIndex) {
   for (var i  = 0; i < particles.length; i++) {
     if (i == currentIndex)
       continue;
@@ -93,8 +93,8 @@ Particle.prtotype.collideAgainstOtherParticles = function(currentIndex) {
     var dist = (new Vector(otherPos.x - this.position.x, otherPos.y - this.position.y)).getMagnitude();
     if (dist <= PARTICLE_SIZE) {
       var otherVel = particles[i].velocity;
-      var
     }
+    return true;
   }
 }
 
